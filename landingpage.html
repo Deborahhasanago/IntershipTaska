@@ -1,0 +1,200 @@
+<DOCTYPE! html>
+<html>
+
+<head> <title> Mindfulcare </title>
+<link rel="stylesheet" href="landingpage.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+</head>
+<body>
+
+    <div class="container">
+        <div class="photo-gallery">
+            <div class="column">
+                <div class="photo">
+                    <img src="./images/placeholder.png" alt="">
+                    <div class="button1">Shop Now</div>
+                </div>
+            </div>
+    
+            <div class="column">
+                <div class="photo">
+                    <img src="./images/placeholder.png" alt="">
+                    <div class="button2">Shop Now</div>
+                </div>
+                <div class="photo">
+                    <img src="./images/placeholder.png" alt="">
+                    <div class="button3">Shop Now</div>
+                </div>
+            </div>
+        </div>
+    
+
+    <section class="productcards">
+        
+        <div class="content">
+            <h3>TATOO SUPPLIES</h3>
+            <img src="./images/tattoo.PNG" alt="tattoo">
+            <button class="buy-1">Shop now</button>
+          </div>
+          <div class="content">
+            <h3>BODY JEWLERY</h3>
+            <img src="./images/piercing.PNG" alt="tattoo">
+            <button class="buy-1">Shop now</button>
+          </div>
+          <div class="content">
+            <h3>PIERCING SUPPLIES</h3>
+            <img src="./images/piercing supply.PNG" alt="tattoo">
+            <button class="buy-1">Shop now</button>
+          </div>
+          <div class="content">
+            <h3>MEDICAL SUPPLIES</h3>
+            <img src="./images/medical.PNG" alt="tattoo">
+            <button class="buy-1">Shop now</button>
+          </div>
+          <div class="content">
+            <h3>PERMANENT MAKEUP</h3>
+            <img src="./images/makeup.PNG" alt="tattoo">
+            <button class="buy-1">Shop now</button>
+          </div>
+    </section>
+  
+    <section class="newproducts">
+        <button id="prev-slide" class="slide-button material-symbols-outlined">chevron_left</button>
+        <div class="products">
+            <div class="card">
+                <div class="card-image">
+                    <img src="./images/product1.PNG" alt="tattoo machine">
+                </div>
+                <div class="card-body">
+                    <h3>$499.99</h3>
+                    <p>Rook Quill Rotary Tattoo Machine - Copper</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-image">
+                    <img src="./images/product2.PNG" alt="tattoo machine">
+                </div>
+                <div class="card-body">
+                    <h3>$499.99</h3>
+                    <p>Rook Quill Rotary Tattoo Machine - Blue</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-image">
+                    <img src="./images/product3.PNG" alt="tattoo machine">
+                </div>
+                <div class="card-body">
+                    <h3>$1199.99</h3>
+                    <p>Pre-Order-Injecta Flite X1 Wireless Tattoo Machine</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-image">
+                    <img src="./images/product4.PNG" alt="tattoo machine">
+                </div>
+                <div class="card-body">
+                    <h3>$1199.99</h3>
+                    <p>Pre-Order-Injecta Flite X1 Wireless Tattoo Machine</p>
+                </div>
+            </div>
+    
+            <!-- Duplicate the first four cards at the end -->
+            <div class="card">
+                <div class="card-image">
+                    <img src="./images/product1.PNG" alt="tattoo machine">
+                </div>
+                <div class="card-body">
+                    <h3>$499.99</h3>
+                    <p>Rook Quill Rotary Tattoo Machine - Copper</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-image">
+                    <img src="./images/product2.PNG" alt="tattoo machine">
+                </div>
+                <div class="card-body">
+                    <h3>$499.99</h3>
+                    <p>Rook Quill Rotary Tattoo Machine - Blue</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-image">
+                    <img src="./images/product3.PNG" alt="tattoo machine">
+                </div>
+                <div class="card-body">
+                    <h3>$1199.99</h3>
+                    <p>Pre-Order-Injecta Flite X1 Wireless Tattoo Machine</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-image">
+                    <img src="./images/product4.PNG" alt="tattoo machine">
+                </div>
+                <div class="card-body">
+                    <h3>$1199.99</h3>
+                    <p>Pre-Order-Injecta Flite X1 Wireless Tattoo Machine</p>
+                </div>
+            </div>
+        </div>
+        <button id="next-slide" class="slide-button material-symbols-outlined">chevron_right</button>
+        <div class="slider-dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span> <!-- Add one more dot for the duplicated cards -->
+        </div>
+    </section>
+  </div>
+   <script>
+    document.addEventListener("DOMContentLoaded", function() {
+    const products = document.querySelector('.products');
+    const slides = document.querySelectorAll('.card');
+    const dots = document.querySelectorAll('.slider-dots .dot');
+    let currentIndex = 0;
+    const cardsPerSlide = 4; // Change to 4 for four cards per slide
+    const totalSlides = Math.ceil(slides.length / cardsPerSlide);
+
+    function showSlide(index) {
+        if (index >= totalSlides) {
+            currentIndex = 0;
+        } else if (index < 0) {
+            currentIndex = totalSlides - 1;
+        } else {
+            currentIndex = index;
+        }
+
+        const offset = -currentIndex * (100 / cardsPerSlide);
+        products.style.transform = `translateX(${offset}%)`;
+
+        dots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === currentIndex);
+        });
+    }
+
+    document.getElementById('next-slide').addEventListener('click', () => {
+        showSlide(currentIndex + 1);
+    });
+
+    document.getElementById('prev-slide').addEventListener('click', () => {
+        showSlide(currentIndex - 1);
+    });
+
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            showSlide(index);
+        });
+    });
+
+    showSlide(currentIndex);
+});
+   </script>
+
+
+
+
+
+
+</body>
+</html>
